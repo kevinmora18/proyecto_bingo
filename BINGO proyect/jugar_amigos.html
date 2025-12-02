@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Xtreme</title>
+    <link rel="stylesheet" href="inicss/style.css"> 
+ 
+</head>
+
+<body style="background-image: url('img/imagen\ begin.jpg'); background-size: cover; background-position: center; height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center;">
+
+    <div id="menuContainer">
+        <h1>BINGO XTREME</h1>
+        
+        <a href="crear_sala.html" class="botonOpcion crearSala">
+            <span class="icono">➕</span>
+            Crear Sala
+        </a>
+
+        <div class="botonOpcion unirseSala" onclick="mostrarInputUnirse()">
+            <span class="icono">🤝</span>
+            Unirse a Sala
+        </div>
+        
+        <div id="inputUnirse" style="display:none; margin-top: 20px;">
+            <input type="number" id="codigoInput" placeholder="Ingresa código (5 dígitos)" style="padding: 10px; font-size: 18px; width: 200px; border-radius: 5px; border: 1px solid #ccc;">
+            <button onclick="unirsePorCodigo()" style="padding: 10px; font-size: 18px; margin-left: 10px; background-color: #f39c12; color: white; border: none; border-radius: 5px; cursor: pointer;">Unirse</button>
+        </div>
+
+    </div>
+
+    <script src="js/script.js">
+
+    </script>
+</body>
+</html>

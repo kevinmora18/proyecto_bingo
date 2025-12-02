@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bingo Xtreme - Línea Horizontal</title>
+<link rel="stylesheet" href="inicss/style.css"> 
+</head>
+
+<body style="background-image: url('img/desierto\ solar.jpg'); background-size: cover; background-position: center; height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center;">
+
+<div>
+    <a href="niveles.html">
+    <button id="btnMenu">MENU</button>
+    </a>
+
+
+<div id="bola"></div>
+</div>
+
+<div id="bingoMsg">¡¡BINGO!! <br><span style="font-size:20px">¡Línea horizontal completada!</span>
+</div>
+
+<div id="cartonContainer">
+<div id="instruccionMeta">
+    ¡Marca las 4 esquinas! para ganar.
+</div>
+
+    <div id="titulos">
+        <div class="titulo B">B</div>
+        <div class="titulo I">I</div>
+        <div class="titulo N">N</div>
+        <div class="titulo G">G</div>
+        <div class="titulo O">O</div>
+    </div>
+
+    <div id="carton"></div>
+
+    <button id="btnBingo" onclick="cantarBingo()">¡BINGO!</button>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+    <div id="combinacionRequerida">
+        <img src="img/esquinas.png" alt="Descripción de la imagen" width="100" height="100">
+    </div><div id="tablaNumerosSalidos">
+        <div id="titulosSalidos">
+            <div class="tituloSalido B">B<br></div>
+            <div class="tituloSalido I">I<br></div>
+            <div class="tituloSalido N">N<br></div>
+            <div class="tituloSalido G">G<br></div>
+            <div class="tituloSalido O">O<br></div>
+        </div>
+        <div id="cuadroNumeros">
+            </div>
+    </div>
+    
+    </div>
+</div>
+
+<script src="js,esquinas/script.js"></script>
+
+</body>
+</html>

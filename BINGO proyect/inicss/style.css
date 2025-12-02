@@ -1,0 +1,565 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #2c3e50; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+}
+
+/* ------------------------ CARTÓN ------------------------ */
+#cartonContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- ESTILO PARA LA INSTRUCCIÓN --- */
+#instruccionMeta {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+#titulos {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.titulo {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.B { background: #f4b400; }
+.I { background: #ff9900; }
+.N { background: #4caf50; }
+.G { background: #2196f3; }
+.O { background: #9c27b0; }
+
+#carton {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    gap: 5px;
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Estilo para número marcado */
+.marcada {
+    background: red !important;
+    color: white !important;
+}
+
+/* --- Estilo para la línea horizontal ganadora --- */
+.lineaGanadora {
+    /* Fondo verde para resaltar la línea */
+    background: linear-gradient(to right, #4CAF50, #8BC34A) !important; 
+    border: 3px solid white; 
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.estrella {
+    background: transparent !important;
+    background-image: url('https://i.imgur.com/2XQ5sGI.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+
+/* ------------------------ BOTÓN BINGO ------------------------ */
+#btnBingo {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to bottom, #ff4d4d, #cc0000);
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+}
+
+#btnBingo:active {
+    transform: scale(0.95);
+}
+
+/* ------------------------ BOLA RODANDO ------------------------ */
+#bola {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    left: -200px;
+    top: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    border: 6px solid rgba(255, 255, 255, 0.9); 
+    transition: left 1.2s ease;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.5), 
+        0 10px 25px rgba(0, 0, 0, 0.6), 
+        0 0 10px rgba(255, 255, 255, 0.2); 
+}
+
+/* ------------------------ COMBINACIÓN REQUERIDA (IMAGEN) ------------------------ */
+#combinacionRequerida {
+    width: 100px;
+    height:100px;;
+    background: url('Captura de pantalla 2025-11-29 134538.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+}
+
+/* ------------------------ TABLA DERECHA ------------------------ */
+#sidebar {
+    width: 140px;
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-size: 22px;
+    height: 500px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+/* ------------------------ MENSAJE GANADOR ------------------------ */
+#bingoMsg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: yellow;
+    color: black;
+    border: 5px solid red;
+    border-radius: 15px;
+    display: none;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
+    z-index: 100;
+}/*
+
+/* Estilo para el nuevo botón de Menú */
+#btnMenu {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50; /* Color oscuro */
+    background: linear-gradient(to bottom, #ecf0f1, #bdc3c7); /* Gris claro/plata */
+    border: 2px solid #2c3e50;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+    margin-bottom: 500%;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+    /* Fondo oscuro y dinámico con efecto de neón */
+    background: radial-gradient(circle at center, #1a0033 0%, #0d001a 100%);
+    font-family: 'Montserrat', sans-serif; /* Fuente más moderna, puedes enlazarla desde Google Fonts */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Puedes añadir esto en la cabecera de tu HTML si usas Google Fonts */
+/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet"> */
+
+
+#menuContainer {
+    text-align: center;
+    padding: 50px 70px;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), /* Sombra más pronunciada */
+                0 0 0 5px rgba(255, 255, 255, 0.1) inset; /* Borde interno sutil */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque más fuerte */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Título del juego con más estilo */
+#tituloJuego {
+    font-size: 80px; /* Tamaño más grande */
+    font-weight: 900; /* Negrita extrema */
+    color: #f7ff00; /* Amarillo neón */
+    text-shadow: 0 0 10px rgba(255,255,0,0.8), /* Resplandor amarillo */
+                 0 0 20px rgba(255,255,0,0.6),
+                 0 0 30px rgba(255,255,0,0.4),
+                 5px 5px 0px #ff007f; /* Sombra sólida rosa/fucsia */
+    margin-bottom: 70px;
+    letter-spacing: 8px; /* Mayor espaciado entre letras */
+    animation: pulseTitle 2s infinite alternate; /* Animación sutil de pulso */
+}
+
+.resaltado {
+    color: #00eaff; /* Color turquesa para "XTREME" */
+    text-shadow: 0 0 10px rgba(0,255,255,0.8), /* Resplandor turquesa */
+                 0 0 20px rgba(0,255,255,0.6),
+                 0 0 30px rgba(0,255,255,0.4);
+}
+
+@keyframes pulseTitle {
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
+}
+
+#botonesMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* Mayor separación entre botones */
+}
+
+.botonOpcion {
+    position: relative;
+    padding: 25px 60px; /* Mayor padding */
+    font-size: 28px; /* Letra más grande */
+    font-weight: 700;
+    border: none;
+    border-radius: 15px; /* Bordes ligeramente más cuadrados */
+    cursor: pointer;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.4), /* Sombra de botón presionable */
+                0 0 20px rgba(0, 255, 255, 0.3); /* Resplandor inicial sutil */
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 2px;
+    overflow: hidden; /* Para el efecto de brillo */
+}
+
+.botonOpcion:active {
+    transform: translateY(6px); /* Mayor desplazamiento al presionar */
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4),
+                0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Efecto de brillo al pasar el ratón */
+.botonOpcion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.5s ease;
+}
+
+.botonOpcion:hover::before {
+    left: 100%;
+}
+
+.icono {
+    font-size: 32px; /* Iconos más grandes */
+    margin-right: 20px;
+    line-height: 1; /* Asegurar que el icono esté centrado verticalmente */
+}
+
+/* Estilo específico para "Jugar Niveles" */
+.niveles {
+    background: linear-gradient(to right, #8e44ad, #9b59b6); /* Morado vibrante */
+    color: white;
+    box-shadow: 0 10px 0 #6f2a8a, /* Sombra inferior más oscura */
+                0 0 20px rgba(142, 68, 173, 0.5); /* Resplandor morado */
+}
+.niveles:hover {
+    box-shadow: 0 10px 0 #6f2a8a,
+                0 0 30px rgba(142, 68, 173, 0.8), /* Resplandor más fuerte en hover */
+                0 0 50px rgba(142, 68, 173, 0.6);
+}
+
+
+/* Estilo específico para "Jugar con Amigos" */
+.amigos {
+    background: linear-gradient(to right, #e67e22, #f39c12); /* Naranja vibrante */
+    color: white;
+    box-shadow: 0 10px 0 #bf6718, /* Sombra inferior más oscura */
+                0 0 20px rgba(230, 126, 34, 0.5); /* Resplandor naranja */
+}
+.amigos:hover {
+    box-shadow: 0 10px 0 #bf6718,
+                0 0 30px rgba(230, 126, 34, 0.8),
+                0 0 50px rgba(230, 126, 34, 0.6);
+}
+
+#version {
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    letter-spacing: 1px;
+}/* ------------------------ TABLA DERECHA (NÚMEROS SALIDOS) ------------------------ */
+#tablaNumerosSalidos {
+    width: 380px; /* Un poco más ancho para dar aire */
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#titulosSalidos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    gap: 4px;
+}
+
+.tituloSalido {
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    line-height: 1.2;
+}
+
+/* El contenedor principal ahora usa grid para separar las 5 columnas verticales */
+#cuadroNumeros {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+    gap: 4px;
+}
+
+/* Esta clase es nueva: contenedores verticales para cada letra */
+.columna-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.celdaSalida {
+    height: 25px; /* Altura reducida para que quepan los 15 números verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; /* Letra ajustada */
+    font-weight: bold;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1); 
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
+}
+
+/* Estilo para los números que ya han salido */
+.salido {
+    color: black !important;
+    font-weight: 900;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    border: 1px solid white;
+}
+
+/* Colores específicos cuando salen */
+.celdaB.salido { background: #ffee58 !important; }
+.celdaI.salido { background: #ffc107 !important; }
+.celdaN.salido { background: #81c784 !important; }
+.celdaG.salido { background: #81d4fa !important; }
+.celdaO.salido { background: #e0b0ff !important; }        /* Estilos específicos para la Sala de Espera */
+        #salaContainer {
+            width: 400px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+        }
+
+        /* Código de Sala con estilo para 5 dígitos */
+        #codigoSala {
+            margin: 20px 0;
+            padding: 15px;
+            background: #2c3e50;
+            border-radius: 8px;
+            font-size: 36px; /* Ajustado */
+            font-weight: bold;
+            letter-spacing: 5px; 
+            color: #2ecc71; /* Color destacado */
+        }
+
+        #listaJugadores {
+            margin-top: 20px;
+            padding: 10px;
+            min-height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .jugadorItem {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .jugadorItem:last-child {
+            border-bottom: none;
+        }
+
+        #btnIniciarJuego {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #27ae60; 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #btnIniciarJuego:hover {
+            background-color: #2ecc71;
+        }
+
+        #btnIniciarJuego:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+
+
+
+
+
+
+
+
+             /* Estilos específicos para la página de Menú */
+        #menuContainer {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+        
+        #menuContainer h1 {
+            color: #ecf0f1;
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .botonOpcion {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 350px;
+            padding: 20px 30px;
+            margin: 20px auto;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .botonOpcion:active {
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+            transform: translateY(6px);
+        }
+
+        .botonOpcion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .botonOpcion:hover::before {
+            left: 100%;
+        }
+
+        .icono {
+            font-size: 32px; 
+            margin-right: 20px;
+            line-height: 1; 
+        }
+
+        /* Estilos específicos */
+        .crearSala {
+            background: linear-gradient(to right, #2980b9, #3498db); /* Azul */
+            color: white;
+            box-shadow: 0 8px 0 #1f6490, 0 0 20px rgba(41, 128, 185, 0.5);
+        }
+        .crearSala:active {
+            box-shadow: 0 2px 0 #1f6490;
+        }
+
+        .unirseSala {
+            background: linear-gradient(to right, #e67e22, #f39c12); /* Naranja */
+            color: white;
+            box-shadow: 0 8px 0 #b76316, 0 0 20px rgba(230, 126, 34, 0.5);
+        }
+        .unirseSala:active {
+            box-shadow: 0 2px 0 #b76316;
+        }

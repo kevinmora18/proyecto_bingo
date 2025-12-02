@@ -1,0 +1,701 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.titulo_inicio {
+  position: absolute;
+  top: 30px;
+  font-size: 60px;
+  font-weight: 900;
+  color: #1e00a3;
+  text-shadow: 0 0 15px #ffff00;
+}
+
+.login-box {
+  width: 360px;
+  padding: 25px;
+ background: rgba(0, 0, 0, 0.74);
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(255, 174, 0, 0.6);
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.username, .password     {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 15px;
+}
+
+/* Botón abajo */
+.login-btn {
+  width: 360px;
+  padding: 12px;
+  margin-top: 15px;
+  background: linear-gradient(#a87000, #ff8c00);
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+  
+}
+
+.shine {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+/* inicio */
+:root{
+  --blue-dark:#071a42;
+  --panel:#0f2b5a;
+  --glass: rgba(255,255,255,0.06);
+  --accent:#f7b500;
+  --whiteish: rgba(255,255,255,0.95);
+  font-family: "Inter", system-ui, Arial, sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  
+  background: #000;
+  color:var(--whiteish);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* contenedor principal */
+.screen{
+  width:100%;
+  max-width:98vw;
+  height:100%;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+
+
+/* superposición gradient para legibilidad */
+.screen::after{
+  content:"";
+  position:absolute; inset:0;
+  z-index:1;
+  background: linear-gradient(180deg, rgba(4,17,45,0.4) 0%, rgba(3,11,34,0.6) 80%);
+}
+
+/* barra superior */
+.topbar{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+  height:60px;
+}
+.topbar .ini_nivel .level{
+  font-weight:700;
+  letter-spacing:1px;
+  background: rgba(0,0,0,0.25);
+  padding:6px 10px;
+  border-radius:18px;
+  display:inline-block;
+}
+.topbar .right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.resource{
+  background: rgba(255,255,255,0.06);
+  padding:6px 10px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+}
+.btn.small{
+  border: none;
+  background: rgba(255,255,255,0.06);
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* area principal de niveles */
+.levels{
+  position:relative;
+  z-index:2;
+  height: calc(100% - 140px);
+  display:flex;
+  align-items:center;
+  padding:12px 28px;
+}
+.levels-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:30px 60px;
+  width:100%;
+  align-items:center;
+  justify-items:center;
+}
+
+/* tarjeta de nivel */
+.level-card{
+  width:210px;
+  height:170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: transform .14s ease;
+}
+.level-card:hover{ transform: translateY(-6px) }
+
+.circle{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow: inset 0 -10px 20px rgba(0,0,0,0.4);
+  border: 3px solid rgba(255,255,255,0.03);
+}
+
+/* imagen dentro del círculo */
+.circle img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  mix-blend-mode: screen;
+}
+
+/* etiqueta del nombre */
+.label{
+    font-family: 'Impact', sans-serif;
+  color: #e1e1e1;
+  position:relative;
+  z-index:4;
+  width:100%;
+  height: 40px;
+  text-align:center;
+  font-weight:400;
+  font-size:15px;
+  letter-spacing:1px;
+  padding:8px 6px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2));
+  backdrop-filter: blur(2px);
+}
+
+/* progress bar */
+.progress{
+  position:absolute;
+  left:12px;
+  right:12px;
+  top:18px;
+  height:10px;
+  background: rgba(255,255,255,0.06);
+  border-radius:6px;
+  overflow:hidden;
+  z-index:3;
+}
+.progress span{
+  display:block;
+  height:100%;
+  background: linear-gradient(90deg, #00d4ff, #2fdc9c);
+}
+
+/* trofeo decorativo */
+.trophy{
+  position:absolute;
+  bottom:120px;
+  z-index:4;
+  font-size:20px;
+  background: rgba(0,0,0,0.32);
+  width: 150px;
+  height: 50px;
+  border-radius:10px;
+}
+.trofeo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+}
+
+/* estilo para locked */
+
+
+.level-card.locked .lock{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+  z-index:4;
+  pointer-events:none;
+  background: linear-gradient(180deg, rgba(4,17,45,0.4) 0%, rgba(3,11,34,0.6) 80%);
+}
+.unlock-text{
+  position:absolute;
+  bottom:8px;
+  width:100%;
+  text-align:center;
+  font-size:12px;
+  z-index:4;
+  opacity:0.95;
+  font-weight:700;
+  letter-spacing:0.6px;
+}
+
+/* flecha de navegación */
+.nav.next{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  border:none;
+  background:rgba(255,255,255,0.06);
+  height:60px;
+  width:40px;
+  border-radius:8px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* barra inferior */
+.bottombar{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 22px;
+  height:80px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.25));
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+.left-widgets, .right-widgets{display:flex; gap:10px; align-items:center}
+.action{
+  width:84px;
+  height:48px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-weight:800;
+}
+.center-widgets .big-coin{
+  width:72px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background: linear-gradient(180deg, #ffd16a, #ffb33b);
+  color:#222;
+  font-size:30px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* tareas y calendario */
+.tasks{
+  background: rgba(255,255,255,0.04);
+  padding:6px 10px;
+  border-radius:10px;
+  font-weight:900;
+}
+.calendar{
+  background: linear-gradient(180deg,#fff,#eee);
+  color:#222;
+  padding:6px 10px;
+  border-radius:8px;
+  font-weight:900;
+}
+
+/* responsive pequeño */
+@media (max-width:900px){
+  .screen{ height:760px; flex-direction:column }
+  .levels-grid{ grid-template-columns: repeat(2, 1fr); gap:18px }
+  .level-card{ width:48%; height:auto }
+  ;
+}
+
+/* cosas del registro*/
+.registro{
+  width: 120px;
+  padding: 3px;
+  margin-top: 2px;
+  background: linear-gradient(#a87000, #ff8c00);
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+}body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Imagen de fondo puesta desde HTML */
+.background {
+  background-image: url('tu-imagen-fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Título principal */
+.titulo {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 40px;
+  color: #ffcc66;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-shadow: 0 0 15px black;
+}
+
+/* Caja del formulario */
+.registro-container {
+  width: 420px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 35px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+.registro-container h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+.registro-container input {
+  width: 90%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.25);
+  color: white;
+}
+
+.registro-container input::placeholder {
+  color: #eee;
+}
+
+/* Botón */
+.btn-registrar {
+  width: 90%;
+  padding: 16px;
+  background: linear-gradient(to bottom, #ffb32c, #d88400);
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-registrar:hover {
+  transform: scale(1.05);
+}
+
+/* Link de volver */
+.link-login {
+  display: block;
+  margin-top: 15px;
+  color: #ffcc66;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.link-login:hover {
+  text-decoration: underline;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Fondo usando la imagen que enviaste */
+.imagen-fondo {
+  background-image: url(''); /* ← Cambia este nombre por tu imagen */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Título superior */
+.titulo {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 40px;
+  color: #ffcc66;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-shadow: 0 0 15px black;
+}
+
+/* Caja del formulario */
+.registro-container {
+  width: 430px;
+  background: rgba(0, 0, 0, 0.74);
+  padding: 35px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+.registro-container h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+.registro-container input {
+  width: 90%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.25);
+  color: white;
+}
+
+.registro-container input::placeholder {
+  color: #eee;
+}
+
+/* Botón */
+.btn-registrar {
+  width: 90%;
+  padding: 16px;
+  background: linear-gradient(to bottom, #ffb32c, #d88400);
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-registrar:hover {
+  transform: scale(1.05);
+}
+
+/* Link inferior */
+.link-login {
+  display: block;
+  margin-top: 15px;
+  color: #ffcc66;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.link-login:hover {
+  text-decoration: underline;
+}
+
+ /* inicio*/
+
+#menuContainer {
+    text-align: center;
+    padding: 50px 70px;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), /* Sombra más pronunciada */
+                0 0 0 5px rgba(255, 255, 255, 0.1) inset; /* Borde interno sutil */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque más fuerte */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Título del juego con más estilo */
+#tituloJuego {
+    font-size: 80px; /* Tamaño más grande */
+    font-weight: 900; /* Negrita extrema */
+    color: #f7ff00; /* Amarillo neón */
+    text-shadow: 0 0 10px rgba(255,255,0,0.8), /* Resplandor amarillo */
+                 0 0 20px rgba(255,255,0,0.6),
+                 0 0 30px rgba(255,255,0,0.4),
+                 5px 5px 0px #ff007f; /* Sombra sólida rosa/fucsia */
+    margin-bottom: 70px;
+    letter-spacing: 8px; /* Mayor espaciado entre letras */
+    animation: pulseTitle 2s infinite alternate; /* Animación sutil de pulso */
+}
+
+.resaltado {
+    color: #00eaff; /* Color turquesa para "XTREME" */
+    text-shadow: 0 0 10px rgba(0,255,255,0.8), /* Resplandor turquesa */
+                 0 0 20px rgba(0,255,255,0.6),
+                 0 0 30px rgba(0,255,255,0.4);
+}
+
+@keyframes pulseTitle {
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
+}
+
+#botonesMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* Mayor separación entre botones */
+}
+
+.botonOpcion {
+    position: relative;
+    padding: 25px 60px; /* Mayor padding */
+    font-size: 28px; /* Letra más grande */
+    font-weight: 700;
+    border: none;
+    border-radius: 15px; /* Bordes ligeramente más cuadrados */
+    cursor: pointer;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.4), /* Sombra de botón presionable */
+                0 0 20px rgba(0, 255, 255, 0.3); /* Resplandor inicial sutil */
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 2px;
+    overflow: hidden; /* Para el efecto de brillo */
+}
+
+.botonOpcion:active {
+    transform: translateY(6px); /* Mayor desplazamiento al presionar */
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4),
+                0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Efecto de brillo al pasar el ratón */
+.botonOpcion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.5s ease;
+}
+
+.botonOpcion:hover::before {
+    left: 100%;
+}
+
+.icono {
+    font-size: 32px; /* Iconos más grandes */
+    margin-right: 20px;
+    line-height: 1; /* Asegurar que el icono esté centrado verticalmente */
+}
+
+/* Estilo específico para "Jugar Niveles" */
+.niveles {
+    background: linear-gradient(to right, #8e44ad, #9b59b6); /* Morado vibrante */
+    color: white;
+    box-shadow: 0 10px 0 #6f2a8a, /* Sombra inferior más oscura */
+                0 0 20px rgba(142, 68, 173, 0.5); /* Resplandor morado */
+}
+.niveles:hover {
+    box-shadow: 0 10px 0 #6f2a8a,
+                0 0 30px rgba(142, 68, 173, 0.8), /* Resplandor más fuerte en hover */
+                0 0 50px rgba(142, 68, 173, 0.6);
+}
+
+
+/* Estilo específico para "Jugar con Amigos" */
+.amigos {
+    background: linear-gradient(to right, #e67e22, #f39c12); /* Naranja vibrante */
+    color: white;
+    box-shadow: 0 10px 0 #bf6718, /* Sombra inferior más oscura */
+                0 0 20px rgba(230, 126, 34, 0.5); /* Resplandor naranja */
+}
+.amigos:hover {
+    box-shadow: 0 10px 0 #bf6718,
+                0 0 30px rgba(230, 126, 34, 0.8),
+                0 0 50px rgba(230, 126, 34, 0.6);
+}
+
+#version {
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    letter-spacing: 1px;
+}

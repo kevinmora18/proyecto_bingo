@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BingoXtreme - Selección de Nivel</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background-image: url('img/imagen\ begin.jpg'); background-size: cover; background-position: center; height: 100vh; margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div class="screen">
+    <!-- fondo (usa la imagen subida) -->
+  
+
+
+    <!-- barra superior -->
+    <header class="topbar">
+      <div class="ini_nive">
+        <div class="level">NIVEL: <span>1</span></div>
+      </div>
+      <div class="center"></div>
+      <div class="right">
+        <div class="resource coin">122 <span class="icon">🟡</span></div>
+
+        <button class="btn small gear" title="Ajustes">⚙️</button>
+
+      </div>
+    </header>
+
+    <!-- área de niveles -->
+    <main class="levels">
+
+      <div class="levels-grid">
+        <!-- Cada tarjeta de nivel -->
+        <div class="level-card unlocked">
+                  <a href="aurabingo_index.html">
+          <div class="circle">
+            <img src="img/aurora.webp" alt="Aurora" />
+            <div class="label">AURORA</div>
+            <div class="progress"><span style="width:0%"></span></div>
+            <div class="trophy">
+              <div class="trofeo">🏆</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-card unlocked">
+          <a href="selvamistica_index.html">
+          <div class="circle">
+            <img src="img/seva mistica.avif" alt="selva mistica" />
+            <div class="label">SELVA MISTICA</div>
+           <div class="progress"><span style="width:0%"></span></div>
+            <div class="trophy">
+              <div class="trofeo">🏆</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-card unlocked">
+          <a href="desierto_solar.html">
+          <div class="circle">
+            <img src="img/desierto solar.jpg" alt="desierto solar" />
+            <div class="label">DESIERTO</div>
+            <div class="trophy">
+              <div class="trofeo">🏆</div>
+              </a>
+              </div>
+          </div>
+        </div>
+
+        <div class="level-card locked" data-unlock="NVL 10">
+          <div class="circle">
+            <img src="img/ciudad futuristica.avif" alt="foto ciudad futuristica" />
+
+            <div class="label">FUTURISTICA</div>
+            <div class="trophy">
+              <div class="trofeo">🏆</div> 
+              </div>
+          </div>
+        </div>
+
+        <div class="level-card locked" data-unlock="NVL 12">
+          <div class="circle">
+            <img src="img/sabana.jpeg" alt="sabana">
+
+            <div class="label">SABANA</div>
+            <div class="trophy">
+              <div class="trofeo">🏆</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-card locked" data-unlock="NVL 15">
+          <div class="circle">
+            <img src="img/cueva cristales.jpeg" alt="cueva cristales">
+
+            <div class="label"> CRISTALES</div>
+            <div class="trophy">
+            <div class="trofeo">🏆</div>
+          </div>
+        </div>
+      </div>
+
+
+    </main>
+
+
+  </div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
